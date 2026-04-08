@@ -1,6 +1,6 @@
 # 远程服务器部署指南
 
-本指南详细说明如何将项目部署到远程服务器（如 42.121.167.205）。
+本指南详细说明如何将项目部署到远程服务器（如 YOUR_SERVER_IP）。
 
 ## 前提条件
 
@@ -117,7 +117,7 @@ tar -czf nobodies-platform.tar.gz .
 
 2. **上传到服务器**
 ```bash
-scp nobodies-platform.tar.gz user@42.121.167.205:/opt/
+scp nobodies-platform.tar.gz user@YOUR_SERVER_IP:/opt/
 ```
 
 3. **在服务器解压**
