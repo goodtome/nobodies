@@ -67,6 +67,9 @@ upload:
   max-file-size: ${UPLOAD_MAX_FILE_SIZE:1099511627776}
   allowed-types: ${UPLOAD_ALLOWED_TYPES:mp4,mov,avi,mkv}
   chunk-retry-times: ${UPLOAD_CHUNK_RETRY_TIMES:3}
+  rate-limit:
+    window-seconds: ${UPLOAD_RATE_LIMIT_WINDOW_SECONDS:60}
+    max-requests: ${UPLOAD_RATE_LIMIT_MAX_REQUESTS:20}
 
 app:
   cors:

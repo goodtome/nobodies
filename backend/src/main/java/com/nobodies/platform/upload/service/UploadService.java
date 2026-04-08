@@ -18,6 +18,8 @@ import com.nobodies.platform.upload.entity.UploadSession;
 import com.nobodies.platform.upload.repository.UploadChunkRepository;
 import com.nobodies.platform.upload.repository.UploadSessionRepository;
 import com.nobodies.platform.video.entity.Video;
+import com.nobodies.platform.task.entity.Task;
+import com.nobodies.platform.task.service.TaskService;
 import com.nobodies.platform.video.repository.VideoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,6 +46,7 @@ public class UploadService {
     private final UploadChunkRepository uploadChunkRepository;
     private final VideoRepository videoRepository;
     private final OssMultipartService ossMultipartService;
+    private final TaskService taskService;
 
     @Value("${upload.allowed-types}")
     private String allowedTypesConfig;
@@ -152,7 +155,9 @@ public class UploadService {
         video.setOssKey(session.getObjectKey());
         video.setStatus(VideoStatus.AVAILABLE.name());
         video.setDeleted(false);
-        videoRepository.save(video);
+        Video savedVideo = videoRepository.save(video);
+
+        createPostUploadTasks(savedVideo.getId(), session.getObjectKey());
     }
 
     @Transactional
@@ -319,6 +324,12 @@ public class UploadService {
 
     private void clearChunkRecords(Long sessionId) {
         uploadChunkRepository.deleteBySessionId(sessionId);
+    }
+
+    private void createPostUploadTasks(Long videoId, String objectKey) {
+        taskService.createTask(Task.TaskType.THUMBNAIL_GENERATION, videoId, Map.of("objectKey", objectKey), 2);
+        taskService.createTask(Task.TaskType.VIDEO_TRANSCODING, videoId, Map.of("objectKey", objectKey), 1);
+        taskService.createTask(Task.TaskType.METADATA_EXTRACTION, videoId, Map.of("objectKey", objectKey), 3);
     }
 }
 
