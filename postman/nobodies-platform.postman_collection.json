@@ -1,0 +1,121 @@
+{
+  "info": {
+    "name": "Nobodies Platform Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{
+  "email": "uploader@example.com",
+  "password": "Password123"
+}"
+        },
+        "url": "{{baseUrl}}/auth/register"
+      }
+    },
+    {
+      "name": "Auth Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{
+  "email": "uploader@example.com",
+  "password": "Password123"
+}"
+        },
+        "url": "{{baseUrl}}/auth/login"
+      }
+    },
+    {
+      "name": "Upload Init",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{
+  "fileName": "demo.mp4",
+  "fileSize": 1048576,
+  "fileType": "mp4",
+  "chunkSize": 1048576
+}"
+        },
+        "url": "{{baseUrl}}/videos/upload/init"
+      }
+    },
+    {
+      "name": "Upload Chunk",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {"key": "chunkNumber", "value": "1", "type": "text"},
+            {"key": "file", "type": "file", "src": ""}
+          ]
+        },
+        "url": "{{baseUrl}}/videos/upload/{{uploadSessionId}}/chunk?chunkNumber=1"
+      }
+    },
+    {
+      "name": "Upload Progress",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "url": "{{baseUrl}}/videos/upload/{{uploadSessionId}}/progress"
+      }
+    },
+    {
+      "name": "Upload Complete",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{
+  "title": "My Demo Video"
+}"
+        },
+        "url": "{{baseUrl}}/videos/upload/{{uploadSessionId}}/complete"
+      }
+    },
+    {
+      "name": "Video List",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "url": "{{baseUrl}}/videos"
+      }
+    }
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"},
+    {"key": "token", "value": ""},
+    {"key": "uploadSessionId", "value": ""}
+  ]
+}

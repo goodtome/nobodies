@@ -1,0 +1,204 @@
+### C
+# Object files
+*.o
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Debug files
+*.dSYM/
+*.idb
+*.pdb
+
+### C++
+# Object files
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Static libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Debug files
+*.dSYM/
+*.idb
+*.pdb
+
+### Java
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+### Node
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Runtime data
+*.pid
+*.pid.lock
+
+# Coverage
+coverage/
+*.lcov
+.nyc_output
+
+# Build output
+dist/
+build/Release
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Framework build output and caches
+.cache
+.parcel-cache
+.next
+out/
+.nuxt
+
+# dotenv environment variable files
+.env
+.env.local
+.env.*.local
+
+# npm cache directory
+.npm
+*.tgz
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/install-state.gz
+.pnp.*
+
+### Objective-C
+# Xcode user settings
+xcuserdata/
+
+# Xcode build data
+DerivedData/
+
+# Obj-C/Swift specific
+*.hmap
+
+# App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+### Windows
+# Windows thumbnail cache files
+Thumbs.db
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows shortcuts
+*.lnk
+
+### JetBrains
+# JetBrains IDE directory
+.idea/
+
+# CMake build directories
+cmake-build-*/
+
+# File-based project format
+*.iws
+*.iml
+
+# IntelliJ build output
+out/
+backend/target/platform-backend-0.0.1-SNAPSHOT.jar.original
+backend/target/classes/application-dev.yml
+backend/target/classes/application-prod.yml
+backend/target/classes/application.yml
+backend/target/classes/db/migration/V1__create_users.sql
+backend/target/classes/db/migration/V2__create_videos.sql
+backend/target/classes/db/migration/V3__create_upload_tables.sql
+backend/target/classes/db/migration/V4__add_token_version_to_users.sql
+backend/target/classes/db/migration/V5__create_password_reset_tokens.sql
+backend/target/classes/db/migration/V6__insert_admin_user.sql
+backend/target/maven-archiver/pom.properties
+backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+backend/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+backend/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+backend/target/production/backend/application-dev.yml
+backend/target/production/backend/application-prod.yml
+backend/target/production/backend/application.yml
+backend/target/production/backend/db/migration/V1__create_users.sql
+backend/target/production/backend/db/migration/V2__create_videos.sql
+backend/target/production/backend/db/migration/V3__create_upload_tables.sql
+backend/target/production/backend/db/migration/V4__add_token_version_to_users.sql
+backend/target/surefire-reports/2026-04-08T08-08-28_049.dumpstream
+backend/target/surefire-reports/2026-04-08T08-10-05_303.dumpstream
+backend/target/surefire-reports/2026-04-08T09-11-05_516.dumpstream
+backend/target/surefire-reports/2026-04-08T09-58-56_018.dumpstream
+backend/target/surefire-reports/2026-04-08T10-17-16_175.dumpstream
+backend/target/surefire-reports/2026-04-08T11-10-03_151.dumpstream
+backend/target/surefire-reports/com.nobodies.platform.auth.service.AuthServiceTest.txt
+backend/target/surefire-reports/com.nobodies.platform.upload.service.UploadServiceTest.txt
+backend/target/surefire-reports/TEST-com.nobodies.platform.auth.service.AuthServiceTest.xml
+backend/target/surefire-reports/TEST-com.nobodies.platform.upload.service.UploadServiceTest.xml
